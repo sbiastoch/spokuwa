@@ -1,0 +1,31 @@
+{% extends '::spokuwa.html.twig' %}
+
+{% block content %}
+<h1>Übersicht</h1>
+<table>
+    <tr>
+        <td>
+            Benutzer gesamt:
+        </td>
+        <td>
+            {{ totalUsers }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Kurse gesamt:
+        </td>
+        <td>
+            {{ totalCourses }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Schüler ohne Kurse:
+        </td>
+        <td>
+            {{ studentsWithoutCourses }}
+        </td>
+    </tr>
+</table>
+{% endblock %}

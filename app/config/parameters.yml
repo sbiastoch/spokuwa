@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: spokuwa
+    database_user: root
+    database_password: ***REMOVED***
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 88663366e35a1a8784bc3366a2cc7963
+    database_path: null

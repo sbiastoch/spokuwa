@@ -1,0 +1,27 @@
+home:
+    pattern: /homepage/
+    defaults: { _controller: BCloudSpoKuWaBundle:Homepage:home }
+
+about:
+    pattern: /homepage/about
+    defaults: { _controller: BCloudSpoKuWaBundle:Homepage:about }
+
+pros:
+    pattern: /homepage/pros
+    defaults: { _controller: BCloudSpoKuWaBundle:Homepage:pros }
+
+example:
+    pattern: /homepage/example
+    defaults: { _controller: BCloudSpoKuWaBundle:Homepage:example }
+
+register:
+    pattern: /homepage/register
+    defaults: { _controller: BCloudSpoKuWaBundle:Client:register }
+
+client_create:
+    pattern: /homepage/client/create
+    defaults: { _controller: BCloudSpoKuWaBundle:Client:create }
+
+impressum:
+    pattern: /homepage/impressum
+    defaults: { _controller: BCloudSpoKuWaBundle:Homepage:impressum }

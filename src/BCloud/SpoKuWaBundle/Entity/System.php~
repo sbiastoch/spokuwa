@@ -1,0 +1,364 @@
+<?php
+
+namespace BCloud\SpoKuWaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * BCloud\SpoKuWaBundle\Entity\System
+ *
+ * @ORM\Table(name="system")
+ * @ORM\Entity
+ */
+class System
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=200, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var integer $state
+     *
+     * @ORM\Column(name="state", type="integer", nullable=true)
+     */
+    private $state;
+
+    /**
+     * @var \DateTime $selectionStart
+     *
+     * @ORM\Column(name="selection_start", type="datetime", nullable=true)
+     */
+    private $selectionStart;
+
+    /**
+     * @var \DateTime $selectionEnd
+     *
+     * @ORM\Column(name="selection_end", type="datetime", nullable=true)
+     */
+    private $selectionEnd;
+
+    /**
+     * @var \DateTime $lastChange
+     *
+     * @ORM\Column(name="last_change", type="datetime", nullable=false)
+     */
+    private $lastChange;
+
+    /**
+     * @var integer $numTerms
+     *
+     * @ORM\Column(name="num_terms", type="smallint", nullable=true)
+     */
+    private $numTerms;
+
+    /**
+     * @var integer $currentSemester
+     *
+     * @ORM\Column(name="current_semester", type="string", nullable=true)
+     */
+    private $currentSemester;
+
+    /**
+     * @var boolean $deactiveStudents
+     *
+     * @ORM\Column(name="deactivate_students", type="boolean")
+     */
+    private $deactivateStudents;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Course", mappedBy="system")
+     */
+    protected $courses;
+	
+    /**
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="system")
+     */
+    protected $students;
+	
+    /**
+     * @ORM\OneToOne(targetEntity="Client", mappedBy="system")
+     */
+    protected $client;
+
+    public function __construct()
+    {
+        $this->courses = new ArrayCollection();
+        $this->students = new ArrayCollection();
+    }
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return System
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set state
+     *
+     * @param integer $state
+     * @return System
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return integer 
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set selectionStart
+     *
+     * @param \DateTime $selectionStart
+     * @return System
+     */
+    public function setSelectionStart($selectionStart)
+    {
+        $this->selectionStart = $selectionStart;
+    
+        return $this;
+    }
+
+    /**
+     * Get selectionStart
+     *
+     * @return \DateTime 
+     */
+    public function getSelectionStart()
+    {
+        return $this->selectionStart;
+    }
+
+    /**
+     * Set selectionEnd
+     *
+     * @param \DateTime $selectionEnd
+     * @return System
+     */
+    public function setSelectionEnd($selectionEnd)
+    {
+        $this->selectionEnd = $selectionEnd;
+    
+        return $this;
+    }
+
+    /**
+     * Get selectionEnd
+     *
+     * @return \DateTime 
+     */
+    public function getSelectionEnd()
+    {
+        return $this->selectionEnd;
+    }
+
+    /**
+     * Set lastChange
+     *
+     * @param \DateTime $lastChange
+     * @return System
+     */
+    public function setLastChange($lastChange)
+    {
+        $this->lastChange = $lastChange;
+    
+        return $this;
+    }
+
+    /**
+     * Get lastChange
+     *
+     * @return \DateTime 
+     */
+    public function getLastChange()
+    {
+        return $this->lastChange;
+    }
+
+    /**
+     * Set numTerms
+     *
+     * @param integer $numTerms
+     * @return System
+     */
+    public function setNumTerms($numTerms)
+    {
+        $this->numTerms = $numTerms;
+    
+        return $this;
+    }
+
+    /**
+     * Get numTerms
+     *
+     * @return integer 
+     */
+    public function getNumTerms()
+    {
+        return $this->numTerms;
+    }
+
+    /**
+     * Add courses
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Course $courses
+     * @return System
+     */
+    public function addCourse(\BCloud\SpoKuWaBundle\Entity\Course $courses)
+    {
+        $this->courses[] = $courses;
+    
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Course $courses
+     */
+    public function removeCourse(\BCloud\SpoKuWaBundle\Entity\Course $courses)
+    {
+        $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
+
+    /**
+     * Set currentSemester
+     *
+     * @param string $currentSemester
+     * @return System
+     */
+    public function setCurrentSemester($currentSemester)
+    {
+        $this->currentSemester = $currentSemester;
+    
+        return $this;
+    }
+
+    /**
+     * Get currentSemester
+     *
+     * @return string 
+     */
+    public function getCurrentSemester()
+    {
+        return $this->currentSemester;
+    }
+
+    /**
+     * Add students
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Student $students
+     * @return System
+     */
+    public function addStudent(\BCloud\SpoKuWaBundle\Entity\Student $students)
+    {
+        $this->students[] = $students;
+    
+        return $this;
+    }
+
+    /**
+     * Remove students
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Student $students
+     */
+    public function removeStudent(\BCloud\SpoKuWaBundle\Entity\Student $students)
+    {
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Set client
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Client $client
+     * @return System
+     */
+    public function setClient(\BCloud\SpoKuWaBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+    
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return BCloud\SpoKuWaBundle\Entity\Client 
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+}

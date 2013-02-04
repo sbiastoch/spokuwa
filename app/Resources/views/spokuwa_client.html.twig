@@ -1,0 +1,21 @@
+{% block navi %}
+      <ul>
+          <li><a href="{{ path('system_summary') }}">Übersicht</a></li>
+          <li><a href="{{ path('course_list') }}">Kurse</a></li>
+          <li>
+              <ul>
+                  <li><a href="{{ path('course_list') }}">Kurseliste</a></li>
+                  <li><a href="{{ path('course_create') }}">Kurs erstellen</a></li>
+              </ul>
+          </li>
+          <li><a href="{{ path('student_list') }}">Schüler</a></li>
+          <li>
+              <ul>
+                  <li><a href="{{ path('student_list') }}">Schülerliste</a></li>
+                  <li><a href="{{ path('student_create') }}">Schüler erstellen</a></li>
+              </ul>
+          </li>
+          <li><a href="{{ path('system_config') }}">Einstellungen</a></li>
+          <li><a href="{{ path('logout') }}">Abmelden</a></li>
+      </ul>
+{% endblock %}

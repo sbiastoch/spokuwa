@@ -1,0 +1,7 @@
+admin:
+    pattern: /admin
+    defaults: { _controller: BCloudSpoKuWaBundle:Admin:index }
+
+admin_client_list:
+    pattern: /admin/client/list
+    defaults: { _controller: BCloudSpoKuWaBundle:Client:list }

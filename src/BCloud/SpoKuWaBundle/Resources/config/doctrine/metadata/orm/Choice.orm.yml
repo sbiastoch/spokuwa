@@ -1,0 +1,38 @@
+Choice:
+    type: entity
+    table: choice
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        priority:
+            type: smallint
+            nullable: false
+        lastChanged:
+            type: datetime
+            nullable: false
+            column: last_changed
+    manyToOne:
+        course:
+            targetEntity: Course
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                course_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        student:
+            targetEntity: Student
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                student_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

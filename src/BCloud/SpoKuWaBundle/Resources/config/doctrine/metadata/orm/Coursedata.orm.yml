@@ -1,0 +1,59 @@
+Coursedata:
+    type: entity
+    table: coursedata
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        teacher:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        lessonStart:
+            type: smallint
+            nullable: true
+            column: lesson_start
+        lessonEnd:
+            type: smallint
+            nullable: true
+            column: lesson_end
+        memberMax:
+            type: smallint
+            nullable: false
+            column: member_max
+        memberMin:
+            type: smallint
+            nullable: true
+            column: member_min
+        selectable:
+            type: boolean
+            nullable: false
+        year:
+            type: date
+            nullable: false
+        term:
+            type: smallint
+            nullable: false
+    manyToOne:
+        course:
+            targetEntity: Course
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                course_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        students:
+            targetEntity: Student
+            mappedBy: coursedatas
+    lifecycleCallbacks: {  }

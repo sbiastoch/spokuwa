@@ -1,0 +1,20 @@
+{% extends '::admin_base.html.twig' %}
+
+{% block content %}
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Schule</th>
+		<th>Tarif</th>
+		<th>Notizen</th>
+	</tr>
+{% for client in clients %}
+	<tr>
+		<td>{{ client.idclient }}</td>
+		<td>{{ client.schoolschool.name }}</td>
+		<td>{{ client.fees }}</td>
+		<td>{{ client.notes }}</td>
+	</tr>
+{% endfor %}
+</table>
+{% endblock %}

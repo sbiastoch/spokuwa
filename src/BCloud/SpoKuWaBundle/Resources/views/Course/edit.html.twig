@@ -1,0 +1,27 @@
+{% extends '::spokuwa.html.twig' %}
+
+{% block content %}
+<h1>Detailansicht Kurs</h1>
+
+<table>
+	<tr>
+		<th>ID {{ course.id }}:</th>
+		<th>{{ course.name }}</th>
+	</tr>
+	<tr>
+		<th>Anforderungsbereich</th>
+		<td>{{ course.scope ? 'B' : 'A' }}</td>
+	</tr>
+	<tr>
+		{% for member in data.members %}
+			<td colspan="2">{{ member.fName }}</td>
+		{% endfor %}
+	</tr>
+</table>
+
+
+<form action="{{ path('course_'~action, { 'idcourse': course.id, 'year': data.year, 'term': data.term }) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <input type="submit" />
+</form>
+{% endblock %}

@@ -1,0 +1,50 @@
+Address:
+    type: entity
+    table: address
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        sex:
+            type: boolean
+            nullable: false
+        fName:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            column: f_name
+        lName:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            column: l_name
+        mail:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        street:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        zip:
+            type: integer
+            unsigned: false
+            nullable: true
+        city:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        lastChanged:
+            type: datetime
+            nullable: false
+            column: last_changed
+    lifecycleCallbacks: {  }

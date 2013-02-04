@@ -1,0 +1,101 @@
+<?php
+
+namespace BCloud\SpoKuWaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BCloud\SpoKuWaBundle\Entity\Coursemember
+ *
+ * @ORM\Table(name="coursemember")
+ * @ORM\Entity
+ */
+class Coursemember
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var Coursedata
+     *
+     * @ORM\ManyToOne(targetEntity="Coursedata")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="coursedata_id", referencedColumnName="id")
+     * })
+     */
+    private $coursedata;
+
+    /**
+     * @var Student
+     *
+     * @ORM\ManyToOne(targetEntity="Student")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="student_id", referencedColumnName="id")
+     * })
+     */
+    private $student;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set coursedata
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Coursedata $coursedata
+     * @return Coursemember
+     */
+    public function setCoursedata(\BCloud\SpoKuWaBundle\Entity\Coursedata $coursedata = null)
+    {
+        $this->coursedata = $coursedata;
+    
+        return $this;
+    }
+
+    /**
+     * Get coursedata
+     *
+     * @return BCloud\SpoKuWaBundle\Entity\Coursedata 
+     */
+    public function getCoursedata()
+    {
+        return $this->coursedata;
+    }
+
+    /**
+     * Set student
+     *
+     * @param BCloud\SpoKuWaBundle\Entity\Student $student
+     * @return Coursemember
+     */
+    public function setStudent(\BCloud\SpoKuWaBundle\Entity\Student $student = null)
+    {
+        $this->student = $student;
+    
+        return $this;
+    }
+
+    /**
+     * Get student
+     *
+     * @return BCloud\SpoKuWaBundle\Entity\Student 
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
+}

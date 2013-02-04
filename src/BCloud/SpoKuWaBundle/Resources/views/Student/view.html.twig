@@ -1,0 +1,23 @@
+{% extends '::spokuwa.html.twig' %}
+
+{% block content %}
+<h1>Detailansicht Schüler</h1>
+<table>
+	<tr>
+		<th>ID</th>
+		<td>{{ student.id}}</td>
+	</tr>
+	<tr>
+		<th>Vorname</th>
+		<td>{{ student.fName }}</td>
+	</tr>
+	<tr>
+		<th>Nachname</th>
+		<td>{{ student.lName }}</td>
+	</tr>
+	<tr>
+		<th>Tutor</th>
+		<td>{{ student.tutor }}</td>
+	</tr>
+</table>
+{% endblock %}

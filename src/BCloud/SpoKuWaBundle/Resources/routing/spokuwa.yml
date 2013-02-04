@@ -1,0 +1,68 @@
+system_summary:
+    pattern: /spokuwa
+    defaults: { _controller: BCloudSpoKuWaBundle:System:summary }
+
+
+
+course_list:
+    pattern: /spokuwa/course/list
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:list }
+
+course_view:
+    pattern: /spokuwa/course/view/{idcourse}/{year}/{term}
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:view, year:0, term:0 }
+    requirements:
+        _method:  GET
+
+course_view_change:
+    pattern: /spokuwa/course/view/{idcourse}
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:viewChange}
+    requirements:
+        _method:  POST
+
+course_update:
+    pattern: /spokuwa/course/update/{idcoursedata}
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:update }
+
+course_create:
+    pattern: /spokuwa/course/create
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:create }
+
+course_add_semester:
+    pattern: /spokuwa/course/addSemester/{idcourse}/{year}/{term}
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:addSemester }
+
+course_edit:
+    pattern: /spokuwa/course/edit/{idcourse}/{year}/{term}
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:edit }
+    
+course_search:
+    pattern: /spokuwa/course/search
+    defaults: { _controller: BCloudSpoKuWaBundle:Course:search }
+
+
+
+
+student_list:
+    pattern: /spokuwa/student/list
+    defaults: { _controller: BCloudSpoKuWaBundle:Student:list }
+
+student_view:
+    pattern: /spokuwa/student/view/{idstudent}
+    defaults: { _controller: BCloudSpoKuWaBundle:Student:view }
+
+student_create:
+    pattern: /spokuwa/student/create
+    defaults: { _controller: BCloudSpoKuWaBundle:Student:create }
+
+student_choices:
+    pattern: /spokuwa/student/choices
+    defaults: { _controller: BCloudSpoKuWaBundle:Student:choices }
+   
+byebye:
+    pattern: /homepage/byebye
+    defaults: { _controller: BCloudSpoKuWaBundle:Student:byebye }
+
+system_config:
+    pattern: /spokuwa/config
+    defaults: { _controller: BCloudSpoKuWaBundle:System:config }

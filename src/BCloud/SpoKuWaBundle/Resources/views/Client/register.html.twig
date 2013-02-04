@@ -1,0 +1,9 @@
+{% extends '::website_base.html.twig' %}
+
+{% block content %}
+<form action="{{ path('client_create')}}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+	<input type="hidden" name="_target_path" value="/spokuwa" />
+    <input type="submit" />
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends '::spokuwa.html.twig' %}
+
+{% block content %}
+<h1>Schülerüberischt</h1>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Vorname</th>
+		<th>Nachname</th>
+		<th>Tutor</th>
+	</tr>
+{% for student in students %}
+	<tr>
+		<td>{{ student.id }}</td>
+		<td><a href="{{ path('student_view', {'idstudent': student.id})}}">{{ student.fName }}</a></td>
+		<td><a href="{{ path('student_view', {'idstudent': student.id})}}">{{ student.lName }}</a></td>
+		<td>{{ student.tutor }}</td>
+	</tr>
+{% endfor %}
+</table>
+{% endblock %}

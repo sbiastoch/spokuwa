@@ -1,0 +1,41 @@
+System:
+    type: entity
+    table: system
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 200
+            fixed: false
+            nullable: true
+        state:
+            type: integer
+            unsigned: false
+            nullable: true
+        selectionStart:
+            type: datetime
+            nullable: true
+            column: selection_start
+        selectionEnd:
+            type: datetime
+            nullable: true
+            column: selection_end
+        lastChange:
+            type: datetime
+            nullable: false
+            column: last_change
+        currentSemester:
+            type: datetime
+            nullable: false
+            column: current_semester
+        numTerms:
+            type: smallint
+            nullable: true
+            column: num_terms
+    lifecycleCallbacks: {  }

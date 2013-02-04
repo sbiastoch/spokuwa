@@ -1,0 +1,71 @@
+Student:
+    type: entity
+    table: student
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        fName:
+            type: string
+            length: 200
+            fixed: false
+            nullable: true
+            column: f_name
+        lName:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+            column: l_name
+        created:
+            type: datetime
+            nullable: true
+        lastChanged:
+            type: datetime
+            nullable: false
+            column: last_changed
+    manyToOne:
+        tutor:
+            targetEntity: Tutor
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tutor_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        courses:
+          targetEntity: Coursedata
+          inversedBy: members
+          joinTable:
+            name: members
+            joinColumns:
+              student_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              coursedata_id:
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

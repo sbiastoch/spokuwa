@@ -1,0 +1,57 @@
+Client:
+    type: entity
+    table: client
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        fees:
+            type: integer
+            unsigned: false
+            nullable: false
+        notes:
+            type: text
+            nullable: true
+    manyToOne:
+        system:
+            targetEntity: System
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                system_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        address:
+            targetEntity: Address
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                address_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        school:
+            targetEntity: School
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                school_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

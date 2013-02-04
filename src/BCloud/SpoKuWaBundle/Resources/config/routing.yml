@@ -1,0 +1,25 @@
+homepage:
+    resource: "@BCloudSpoKuWaBundle/Resources/routing/homepage.yml"
+
+spokuwa:
+    resource: "@BCloudSpoKuWaBundle/Resources/routing/spokuwa.yml"
+
+admin:
+    resource: "@BCloudSpoKuWaBundle/Resources/routing/admin.yml"
+
+
+b_cloud_spo_ku_wa_homepage:
+    pattern:  /
+    defaults: { _controller: BCloudSpoKuWaBundle:Homepage:home }
+
+login:
+    pattern: /login
+    defaults: { _controller: BCloudSpoKuWaBundle:Secured:login }
+
+login_check:
+    pattern: /spokuwa/login_check
+    defaults: { _controller: BCloudSpoKuWaBundle:Login:securityCheck }
+
+logout:
+    pattern:  /spokuwa/logout
+    defaults: { _controller: BCloudSpoKuWaBundle:Login:logout }
