@@ -4,7 +4,7 @@ parameters:
     database_port: null
     database_name: spokuwa
     database_user: root
-    database_password: ***REMOVED***
+    database_password: ***secret***
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: null
